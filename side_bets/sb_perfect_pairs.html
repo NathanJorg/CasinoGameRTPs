@@ -4,17 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfect Pairs</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        // Function to load the buttons.html file and inject it into the current page
-        function loadNavigationButtons() {
-            fetch('buttons.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('buttons-container').innerHTML = html;
-                });
-        }
-    </script>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts/loadNavigationButtons.js"></script>
 </head>
 <body onload="loadNavigationButtons()">
     <header>
@@ -30,7 +21,7 @@
         </select>
     </section>
     <section id="tables">
-        <div class="menu-filter" data-filter="5">
+        <!-- <div class="menu-filter" data-filter="5">
             <h2>5 Decks</h2>
             <table class="sideBets">
                 <thead>
@@ -53,7 +44,7 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </div> -->
         <div class="menu-filter" data-filter="6">
             <h2>6 Decks</h2>
             <table class="sideBets">
@@ -70,11 +61,6 @@
                         <td>96.63%</td>
                         <td>3.37%</td>
                     </tr>
-                    <tr>
-                        <td>25-12-6 Payout</td>
-                        <td>95.90%</td>
-                        <td>4.10%</td>
-                    </tr>
                 </tbody>
             </table>
         </div>
@@ -90,11 +76,6 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>30-10-5 Payout</td>
-                        <td>94.21%</td>
-                        <td>5.79%</td>
-                    </tr>
-                    <tr>
                         <td>25-12-6 Payout</td>
                         <td>93.89%</td>
                         <td>6.11%</td>
@@ -104,6 +85,6 @@
         </div>
     </section>
     <div id="buttons-container"></div>
-    <script src="scripts.js"></script>
+    <script src="../scripts/scripts.js"></script>
 </body>
 </html>

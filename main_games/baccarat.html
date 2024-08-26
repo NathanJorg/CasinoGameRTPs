@@ -4,19 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baccarat</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        // Function to load the buttons.html file and inject it into the current page
-        function loadNavigationButtons() {
-            fetch('buttons.html')
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById('buttons-container').innerHTML = html;
-                });
-        }
-    </script>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts/loadNavigationButtons.js"></script>
 </head>
-<body data-game="Baccarat" onload="loadNavigationButtons()" data-side-bets="sb_tiger_baccarat.html,sb_dragon_bonus.html,sb_perfect_pairs.html">
+<body data-game="Baccarat" onload="loadNavigationButtons()" data-side-bets="../side_bets/sb_tiger_baccarat.html,../side_bets/sb_dragon_bonus.html,../side_bets/sb_perfect_pairs.html">
     <header>
         <h1>Baccarat</h1>
     </header>
@@ -105,6 +96,6 @@
         </table>
     </section>
     <div id="buttons-container"></div>
-    <script src="scripts.js"></script>
+    <script src="../scripts/scripts.js"></script>
 </body>
 </html>
