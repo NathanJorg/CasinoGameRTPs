@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack RTPs</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Function to load the buttons.html file and inject it into the current page
+        function loadNavigationButtons() {
+            fetch('buttons.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('buttons-container').innerHTML = html;
+                });
+        }
+    </script>
+</head>
+<body data-game="Blackjack" onload="loadNavigationButtons()" data-side-bets="sb_perfect_pairs.html">
+    <header>
+        <h1>Blackjack</h1>
+    </header>
+    <section>
+        <label for="menu-select">Select number of decks: </label>
+        <select id="menu-select">
+            <option value="all">All</option>
+            <option value="5">5 Decks</option>
+            <option value="6">6 Decks</option>
+            <option value="8">8 Decks</option>
+        </select>
+    </section>
+    <section id="tables">
+        <div class="menu-filter" data-filter="5">
+            <h2>5 Decks</h2>
+            <table class="mainGame">
+                <thead>
+                    <tr>
+                        <th data-sort="betType">Bet Type</th>
+                        <th data-sort="rtp">RTP</th>
+                        <th data-sort="houseEdge">House Edge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Blackjack - 5 Decks</td>
+                        <td>99.47%</td>
+                        <td>0.53%</td>
+                    </tr>
+                    <tr>
+                        <td>Insurance</td>
+                        <td>92.60%</td>
+                        <td>7.40%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>   
+        <div class="menu-filter" data-filter="6">
+            <h2>6 Decks</h2>
+            <table class="mainGame">
+                <thead>
+                    <tr>
+                        <th data-sort="betType">Bet Type</th>
+                        <th data-sort="rtp">RTP</th>
+                        <th data-sort="houseEdge">House Edge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Blackjack - 6 Decks</td>
+                        <td>99.45%</td>
+                        <td>0.55%</td>
+                    </tr>
+                    <tr>
+                        <td>Insurance</td>
+                        <td>92.60%</td>
+                        <td>7.40%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> 
+        <div class="menu-filter" data-filter="8">
+            <h2>8 Decks</h2>
+            <table class="mainGame">
+                <thead>
+                    <tr>
+                        <th data-sort="betType">Bet Type</th>
+                        <th data-sort="rtp">RTP</th>
+                        <th data-sort="houseEdge">House Edge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Blackjack - 8 Decks</td>
+                        <td>99.42%</td>
+                        <td>0.58%</td>
+                    </tr>
+                    <tr>
+                        <td>Insurance</td>
+                        <td>92.60%</td>
+                        <td>7.40%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>      
+    </section>
+    <section>
+        <h2>Side Bets</h2>
+        <table id="sideBets" class="table-4-columns">
+            <thead>
+                <tr>
+                    <th data-sort="betType">Side Bet</th>
+                    <th data-sort="numberOfDecks">Number of Decks</th>
+                    <th data-sort="rtp">RTP</th>
+                    <th data-sort="houseEdge">House Edge</th>
+                </tr>
+            </thead>
+            <tbody id="sideBets-tbody">
+                <!-- Side bets will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </section>
+    <div id="buttons-container"></div>
+    <script src="scripts.js"></script>
+</body>
+</html>

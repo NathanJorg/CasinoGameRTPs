@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanish Blackjack RTP</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Function to load the buttons.html file and inject it into the current page
+        function loadNavigationButtons() {
+            fetch('buttons.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('buttons-container').innerHTML = html;
+                });
+        }
+    </script>
+</head>
+<body data-game="Spanish Blackjack" data-side-bets="sb_perfect_pairs_spanish.html" onload="loadNavigationButtons()">
+    <header>
+        <h1>Spanish Blackjack</h1>
+    </header>
+    <section>
+        <label for="menu-select">Select number of decks: </label>
+        <select id="menu-select">
+            <option value="all">All</option>
+            <option value="6">6 Decks</option>
+            <option value="8">8 Decks</option>
+        </select>
+    </section>
+    <section id="tables">
+        <div class="menu-filter" data-filter="6">
+            <h2>6 Decks</h2>
+            <table class="mainGame">
+                <thead>
+                    <tr>
+                        <th data-sort="betType">Bet Type</th>
+                        <th data-sort="rtp">RTP</th>
+                        <th data-sort="houseEdge">House Edge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Spanish BJ - 6 Decks</td>
+                        <td>99.60%</td>
+                        <td>0.40%</td>
+                    </tr>     
+                </tbody>
+            </table>
+        </div>
+        <div class="menu-filter" data-filter="8">
+            <h2>8 Decks</h2>
+            <table class="mainGame">
+                <thead>
+                    <tr>
+                        <th data-sort="betType">Bet Type</th>
+                        <th data-sort="rtp">RTP</th>
+                        <th data-sort="houseEdge">House Edge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Spanish BJ - 8 Decks</td>
+                        <td>99.58%</td>
+                        <td>0.42%</td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section>
+        <h2>Side Bets</h2>
+        <table id="sideBets" class="table-4-columns">
+            <thead>
+                <tr>
+                    <th class="column-1" data-sort="betType">Side Bet</th>
+                    <th class="column-2" data-sort="numberOfDecks">Decks</th>
+                    <th class="column-3" data-sort="rtp">RTP</th>
+                    <th class="column-4" data-sort="houseEdge">House Edge</th>
+                </tr>
+            </thead>
+            <tbody id="sideBets-tbody">
+                <!-- Side bets will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </section>
+    <div id="buttons-container"></div>
+    <script src="scripts.js"></script>
+</body>
+</html>
