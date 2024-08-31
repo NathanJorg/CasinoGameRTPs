@@ -30,6 +30,7 @@
                     <li class="game-item" data-name="Sic-Bo"><a href=".\main_games\sic-bo.html">Sic-Bo</a></li>
                     <li class="game-item" data-name="Electronic Sic-Bo"><a href=".\main_games\electronic_sic-bo.html">Electronic Sic-Bo</a></li>
                     <li class="game-item" data-name="Caribbean Stud Poker"><a href=".\main_games\caribbean_stud.html">Caribbean Stud Poker</a></li>
+                    <li class="game-item" data-name="Three Card Poker"><a href=".\main_games\three_card_poker.html">Three Card Poker</a></li>
                 </ul>
             </div>
             <div class="column" id="side-bets">
@@ -46,11 +47,22 @@
     </section>
 
 
-    <!-- <section>
-        <h2>Dynamic Queries</h2>
-        <button onclick="queryTopRTPs()">Top 10 Main Game RTPs</button>
-        <div id="queryResults"></div>
-    </section> -->
+    <!-- New Section for Displaying Min and Max RTPs -->
+    <section>
+        <h2>Queries</h2>
+        <!-- Button to trigger the display of min and max RTPs -->
+        <button id="display-rtp-button">Main Game Min and Max RTPs</button>
+        <!-- Container where the min and max RTPs will be displayed -->
+        <!-- <div id="rtp-results"></div> -->
+    </section>
+
     <script src="/scripts/scripts.js"></script>
+    <!-- Link to the JavaScript file containing the function -->
+    <script src="/scripts/mainRtpRange.js"></script>
+    <!-- Inline script to handle button click event -->
+    <script>
+        document.getElementById('display-rtp-button').addEventListener('click', redirectToRTPResults);
+    </script>
+    
 </body>
 </html>

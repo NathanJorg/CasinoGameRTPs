@@ -91,6 +91,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     async function updateSideBets(selectedOption) {
+        
+        if (!document.body.getAttribute('data-side-bets')) {
+            return;
+        }
+
         try {
             const sideBetFiles = document.body.getAttribute('data-side-bets').split(',');
             const mainGameFilters = document.querySelectorAll('.menu-filter'); // Get all filters from the main game
@@ -128,11 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             const betTypeCell = clonedRow.querySelector('td:first-child');
                             betTypeCell.textContent = `${sideBetHeader} - ${betTypeCell.textContent}`;
     
-                            // if (gameType === 'Blackjack' || gameType === 'Baccarat' || gameType === 'Spanish Blackjack' || gameType === "Blackjack Challenge") {
-                            //     const deckCell = document.createElement('td');
-                            //     deckCell.textContent = deckValue;
-                            //     clonedRow.insertBefore(deckCell, clonedRow.querySelector('td:nth-child(2)'));
-                            // }
                             if (columnsCount === 4) {
                                 const deckCell = document.createElement('td');
                                 deckCell.textContent = deckValue;
@@ -166,6 +166,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sortingInitialized.has(table)) return; // Avoid re-initializing
 
         sortingInitialized.add(table); // Mark this table as initialized
+
+        const tbody = table.querySelector('tbody');
+        const rows = tbody ? tbody.querySelectorAll('tr') : [];
+    
+        // Skip sorting if there's only one row or no rows
+        if (rows.length <= 1 && tbody.id != 'sideBets-tbody') return;
         
         const headers = table.querySelectorAll('th');
         headers.forEach(header => {
@@ -192,20 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 logSortingClasses(headers);
             });
         });
-    }
-    
-    function logSortingClasses(headers) {
-        headers.forEach((header, index) => {
-            const sortOrder = header.classList.contains('sort-asc') ? 'sort-asc' :
-                              header.classList.contains('sort-desc') ? 'sort-desc' :
-                              'none';
-    
-            console.log(`Column ${index + 1}: ${sortOrder}`);
-        });
-    }
-    
-    
-    
+    }   
 
     function sortTableByColumn(table, columnIndex, dataType, isAscending) {
         const tbody = table.querySelector('tbody');
@@ -228,6 +221,16 @@ document.addEventListener('DOMContentLoaded', () => {
         rows.forEach(row => tbody.appendChild(row));
     }
 
+    function logSortingClasses(headers) {
+        headers.forEach((header, index) => {
+            const sortOrder = header.classList.contains('sort-asc') ? 'sort-asc' :
+                              header.classList.contains('sort-desc') ? 'sort-desc' :
+                              'none';
+    
+            console.log(`Column ${index + 1}: ${sortOrder}`);
+        });
+    }
+
     // Apply sorting to all tables, regardless of deck-table attribute
     const allTables = document.querySelectorAll('table');
     allTables.forEach(table => {
@@ -236,3 +239,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+

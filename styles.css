@@ -72,7 +72,7 @@ table:has(thead th:nth-child(4)) th:nth-child(4) {
 
 /* Define specific widths for each column */
 table:has(thead th:nth-child(5)) th:nth-child(1) {
-    width: 25%; /* First column width */
+    width: 24%; /* First column width */
 }
 
 table:has(thead th:nth-child(5)) th:nth-child(2) {
@@ -80,15 +80,15 @@ table:has(thead th:nth-child(5)) th:nth-child(2) {
 }
 
 table:has(thead th:nth-child(5)) th:nth-child(3) {
-    width: 20%; /* Third column width */
+    width: 19%; /* Third column width */
 }
 
 table:has(thead th:nth-child(5)) th:nth-child(4) {
-    width: 20%; /* Third column width */
+    width: 19%; /* Third column width */
 }
 
 table:has(thead th:nth-child(5)) th:nth-child(5) {
-    width: 20%; /* Third column width */
+    width: 25%; /* Third column width */
 }
 
 button {
@@ -104,6 +104,12 @@ button {
 
 button:hover {
     background-color: #005bb5;
+}
+
+#display-rtp-button {
+    margin-top: 10px;
+    width: 300px; 
+    padding: 15px 20px;
 }
 
 th.sort-asc::after {
