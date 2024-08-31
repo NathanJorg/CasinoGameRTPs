@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheel of Fortune RTP</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts/loadNavigationButtons.js"></script>
+</head>
+<body data-game="Wheel of Fortune" onload="loadNavigationButtons()">
+    <header>
+        <h1>Wheel of Fortune</h1>
+    </header>
+    <section>
+        <label for="menu-select">Select number of spaces: </label>
+        <select id="menu-select">
+            <option value="all">All</option>
+            <option value="50">50 spaces</option>
+            <option value="52">52 spaces</option>
+            <option value="54">54 spaces</option>
+
+        </select>
+    </section>
+    <section id="tables">
+        <div class="menu-filter" data-filter="50">
+            <h2>50 Spaces</h2>
+            <table class="mainGame">
+                <thead>
+                    <tr>
+                        <th data-sort="betType">Bet Type</th>
+                        <th data-sort="rtp">RTP</th>
+                        <th data-sort="houseEdge">House Edge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Symbol a - 24 sections</td>
+                        <td>96.00%</td>
+                        <td>4.00%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol b - 8 sections</td>
+                        <td>96.00%</td>
+                        <td>4.00%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol c - 8 sections</td>
+                        <td>96.00%</td>
+                        <td>4.00%</td>
+                    </tr>       
+                    <tr>
+                        <td>Symbol d - 4 sections</td>
+                        <td>96.00%</td>
+                        <td>4.00%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol e - 2 sections</td>
+                        <td>92.00%</td>
+                        <td>8.00%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol f - 2 sections</td>
+                        <td>92.00%</td>
+                        <td>8.00%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol g - 1 section</td>
+                        <td>90.00%</td>
+                        <td>10.00%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol h - 1 section</td>
+                        <td>90.00%</td>
+                        <td>10.00%</td>
+                    </tr> 
+                </tbody>
+            </table>
+        </div>
+        <div class="menu-filter" data-filter="52">
+            <h2>52 Spaces</h2>
+            <table class="mainGame">
+                <thead>
+                    <tr>
+                        <th data-sort="betType">Bet Type</th>
+                        <th data-sort="rtp">RTP</th>
+                        <th data-sort="houseEdge">House Edge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Symbol a - 24 sections</td>
+                        <td>92.31%</td>
+                        <td>7.69%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol b - 12 sections</td>
+                        <td>92.31%</td>
+                        <td>7.69%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol c - 8 sections</td>
+                        <td>92.31%</td>
+                        <td>7.69%</td>
+                    </tr>       
+                    <tr>
+                        <td>Symbol d - 4 sections</td>
+                        <td>92.31%</td>
+                        <td>7.69%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol e - 2 sections</td>
+                        <td>92.31%</td>
+                        <td>7.69%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol f - 1 section</td>
+                        <td>92.31%</td>
+                        <td>7.69%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol g - 1 section</td>
+                        <td>92.31%</td>
+                        <td>7.69%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="menu-filter" data-filter="54">
+            <h2>54 Spaces</h2>
+            <table class="mainGame">
+                <thead>
+                    <tr>
+                        <th data-sort="betType">Bet Type</th>
+                        <th data-sort="rtp">RTP</th>
+                        <th data-sort="houseEdge">House Edge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Symbol a - 26 sections</td>
+                        <td>96.30%</td>
+                        <td>3.70%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol b - 13 sections</td>
+                        <td>96.30%</td>
+                        <td>3.70%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol c - 7 sections</td>
+                        <td>97.22%</td>
+                        <td>2.78%</td>
+                    </tr>       
+                    <tr>
+                        <td>Symbol d - 4 sections</td>
+                        <td>96.30%</td>
+                        <td>3.70%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol e - 2 sections</td>
+                        <td>96.30%</td>
+                        <td>3.70%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol f - 1 section</td>
+                        <td>98.15%</td>
+                        <td>1.85%</td>
+                    </tr>
+                    <tr>
+                        <td>Symbol g - 1 section</td>
+                        <td>98.15%</td>
+                        <td>1.85%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <div id="buttons-container"></div>
+    <script src="../scripts/scripts.js"></script>
+</body>
+</html>
