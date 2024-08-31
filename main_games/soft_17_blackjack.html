@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../styles.css">
     <script src="../scripts/loadNavigationButtons.js"></script>
 </head>
-<body data-game="Blackjack" onload="loadNavigationButtons()" data-side-bets="../side_bets/sb_perfect_pairs.html">
+<body data-game="Blackjack" onload="loadNavigationButtons()" data-side-bets="../side_bets/sb_perfect_pairs.html,../side_bets/sb_lucky_lucky.html">
     <header>
         <h1>Soft 17 Blackjack</h1>
     </header>
@@ -99,10 +99,10 @@
         <table id="sideBets" class="table-4-columns">
             <thead>
                 <tr>
-                    <th data-sort="betType">Side Bet</th>
-                    <th data-sort="numberOfDecks">Number of Decks</th>
-                    <th data-sort="rtp">RTP</th>
-                    <th data-sort="houseEdge">House Edge</th>
+                    <th class="column-1" data-sort="betType">Side Bet</th>
+                    <th class="column-2" data-sort="numberOfDecks">Number of Decks</th>
+                    <th class="column-3" data-sort="rtp">RTP</th>
+                    <th class="column-4" data-sort="houseEdge">House Edge</th>
                 </tr>
             </thead>
             <tbody id="sideBets-tbody">

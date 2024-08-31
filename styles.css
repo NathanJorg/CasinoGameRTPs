@@ -40,41 +40,56 @@ tr:nth-child(even) {
 }
 
 /* Define specific widths for each column */
-th:nth-child(1), td:nth-child(1) {
+table:has(thead th:nth-child(3)) th:nth-child(1) {
     width: 40%; /* First column width */
 }
 
-th:nth-child(2), td:nth-child(2) {
+table:has(thead th:nth-child(3)) th:nth-child(2) {
     width: 30%; /* Second column width */
 }
 
-th:nth-child(3), td:nth-child(3) {
+table:has(thead th:nth-child(3)) th:nth-child(3) {
     width: 30%; /* Third column width */
 }
 
 
-.table-4-columns th, .table-4-columns td {
-    /* Default to equal widths for 4 columns if no specific class is applied */
-    width: 25%;
+/* Define specific widths for each column */
+table:has(thead th:nth-child(4)) th:nth-child(1) {
+    width: 32%; /* First column width */
 }
 
-/* Custom column widths for tables with 4 columns */
-.table-4-columns .column-1 {
-    width: 32%;
+table:has(thead th:nth-child(4)) th:nth-child(2) {
+    width: 18%; /* Second column width */
 }
 
-.table-4-columns .column-2 {
-    width: 15%;
+table:has(thead th:nth-child(4)) th:nth-child(3) {
+    width: 22%; /* Third column width */
 }
 
-.table-4-columns .column-3 {
-    width: 22%;
+table:has(thead th:nth-child(4)) th:nth-child(4) {
+    width: 22%; /* Third column width */
 }
 
-.table-4-columns .column-4 {
-    width: 22%;
+/* Define specific widths for each column */
+table:has(thead th:nth-child(5)) th:nth-child(1) {
+    width: 25%; /* First column width */
 }
 
+table:has(thead th:nth-child(5)) th:nth-child(2) {
+    width: 14%; /* Second column width */
+}
+
+table:has(thead th:nth-child(5)) th:nth-child(3) {
+    width: 20%; /* Third column width */
+}
+
+table:has(thead th:nth-child(5)) th:nth-child(4) {
+    width: 20%; /* Third column width */
+}
+
+table:has(thead th:nth-child(5)) th:nth-child(5) {
+    width: 20%; /* Third column width */
+}
 
 button {
     margin-top: 20px;

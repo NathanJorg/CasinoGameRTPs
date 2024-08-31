@@ -4,6 +4,7 @@ from http.server import SimpleHTTPRequestHandler, HTTPServer
 
 # Define server settings
 PORT = 8080
+ADDRESS = "127.0.0.41"
 DIRECTORY = os.getcwd()
 
 class MyHandler(SimpleHTTPRequestHandler):
@@ -11,11 +12,11 @@ class MyHandler(SimpleHTTPRequestHandler):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
 
 # Start the HTTP server
-httpd = HTTPServer(("127.0.0.41", PORT), MyHandler)
+httpd = HTTPServer((ADDRESS, PORT), MyHandler)
 print(f"Serving at port {PORT}")
 
 # Open the default web browser to index.html
-webbrowser.open(f'http://127.0.0.41:{PORT}/index.html')
+webbrowser.open(f'http://{ADDRESS}:{PORT}/index.html')
 
 # Start serving
 httpd.serve_forever()

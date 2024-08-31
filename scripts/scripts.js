@@ -105,6 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const sideBetHeader = doc.querySelector('header h1').textContent.trim();
 
+                const sideBetsTableColumns = document.getElementById('sideBets');
+                const columnsCount = sideBetsTableColumns ? sideBetsTableColumns.querySelector('thead tr').cells.length : 0;
+
                 const sideBetsTables = doc.querySelectorAll('.menu-filter');
                 sideBetsTables.forEach(table => {
                     const deckValue = table.getAttribute('data-filter');
@@ -122,21 +125,27 @@ document.addEventListener('DOMContentLoaded', () => {
                         rows.forEach(row => {
                             const clonedRow = row.cloneNode(true);
                             
-       
                             const betTypeCell = clonedRow.querySelector('td:first-child');
                             betTypeCell.textContent = `${sideBetHeader} - ${betTypeCell.textContent}`;
     
-                            if (gameType === 'Blackjack' || gameType === 'Baccarat' || gameType === 'Spanish Blackjack') {
+                            // if (gameType === 'Blackjack' || gameType === 'Baccarat' || gameType === 'Spanish Blackjack' || gameType === "Blackjack Challenge") {
+                            //     const deckCell = document.createElement('td');
+                            //     deckCell.textContent = deckValue;
+                            //     clonedRow.insertBefore(deckCell, clonedRow.querySelector('td:nth-child(2)'));
+                            // }
+                            if (columnsCount === 4) {
                                 const deckCell = document.createElement('td');
                                 deckCell.textContent = deckValue;
                                 clonedRow.insertBefore(deckCell, clonedRow.querySelector('td:nth-child(2)'));
                             }
-                                           
+
                             const cells = clonedRow.querySelectorAll('td');
 
                             cells.forEach((cell, index) => {
                                 cell.classList.add(`column-${index + 1}`);
-                            });
+                            }); 
+
+                            console.log(clonedRow)
 
                             sideBetsTbody.appendChild(clonedRow);
                         });
@@ -159,7 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sortingInitialized.add(table); // Mark this table as initialized
         
         const headers = table.querySelectorAll('th');
-        console.log(headers)
         headers.forEach(header => {
             header.addEventListener('click', () => {
                 const currentOrder = header.getAttribute('data-sort-order');
