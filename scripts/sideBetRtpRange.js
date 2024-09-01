@@ -14,7 +14,7 @@ function extractRTPValues(doc) {
     const rtpData = []; // Array to store objects with RTP values and their bet types
     
     // Find all tables with the "mainGame" class
-    const tables = doc.querySelectorAll('table.mainGame');
+    const tables = doc.querySelectorAll('table.sideBets');
 
     tables.forEach(table => {
         // Find the headers of the table
@@ -85,7 +85,7 @@ async function displayMinMaxRTPs() {
         const doc = parser.parseFromString(text, 'text/html');
 
         // Select all game links from the main game list
-        const gameLinks = doc.querySelectorAll('#main-game-names .game-item a');
+        const gameLinks = doc.querySelectorAll('#side-bets .game-item a');
         const gameFiles = Array.from(gameLinks).map(link => link.getAttribute('href'));
 
         // Check if there are no game files found
@@ -167,8 +167,8 @@ function createMinMaxRTPTable(rtpData) {
 
 
 // Function to redirect to the new page
-function displayMainRTPs() {
-    window.location.href = "rtpResults.html";
+function displaySideBetRTPs() {
+    window.location.href = "sideBetRtpResults.html";
 }
 
 function addSortingToTable(table) {
