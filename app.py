@@ -16,7 +16,8 @@ main_games = [
     {'name': 'Texas Hold\'em Bonus Poker', 'file_path': 'texas_holdem_bonus.html'},
     {'name': 'Three Card Poker', 'file_path': 'three_card_poker.html'},
     {'name': 'Ultimate Texas Hold\'em', 'file_path': 'ultimate_texas_holdem.html'},
-    {'name': 'Wheel of Fortune', 'file_path': 'wheel_of_fortune.html'}
+    {'name': 'Wheel of Fortune', 'file_path': 'wheel_of_fortune.html'},
+    {'name': 'Craps', 'file_path': 'craps.html'}
 ]
 
 side_bets = [
