@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baccarat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> 
+</head>
+<body data-game="Baccarat" onload="loadNavigationButtons()" 
+        data-side-bets="{% for side_bet in side_bets %}
+                            {{ url_for('side_bet_page', side_bet_name=side_bet.file_path.replace('.html', '')) }}{% if not loop.last %},{% endif %}
+                        {% endfor %}">
+    <header>
+        <h1>Baccarat</h1>
+    </header>
+    <section>
+        <label for="menu-select">Select number of decks: </label>
+        <select id="menu-select">
+            <option value="all">All</option>
+            <option value="6">6 Decks</option>
+            <option value="8">8 Decks</option>
+        </select>
+    </section>
+    <section id="tables">
+        <div class="menu-filter" data-filter="6">
+            <h2>6 Decks</h2>
+            <table class="mainGame">
+                <thead>
+                    <tr>
+                        <th data-sort="betType">Bet Type</th>
+                        <th data-sort="rtp">RTP</th>
+                        <th data-sort="houseEdge">House Edge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Banker Bet</td>
+                        <td>98.94%</td>
+                        <td>1.06%</td>
+                    </tr>
+                    <tr>
+                        <td>Player Bet</td>
+                        <td>98.76%</td>
+                        <td>1.24%</td>
+                    </tr>
+                    <tr>
+                        <td>Tie Bet</td>
+                        <td>85.56%</td>
+                        <td>14.44%</td>
+                    </tr>        
+                </tbody>
+            </table>
+        </div>
+        <div class="menu-filter" data-filter="8">
+            <h2>8 Decks</h2>
+            <table class="mainGame">
+                <thead>
+                    <tr>
+                        <th data-sort="betType">Bet Type</th>
+                        <th data-sort="rtp">RTP</th>
+                        <th data-sort="houseEdge">House Edge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Banker Bet</td>
+                        <td>98.94%</td>
+                        <td>1.06%</td>
+                    </tr>
+                    <tr>
+                        <td>Player Bet</td>
+                        <td>98.76%</td>
+                        <td>1.24%</td>
+                    </tr>
+                    <tr>
+                        <td>Tie Bet</td>
+                        <td>85.56%</td>
+                        <td>14.44%</td>
+                    </tr>        
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section>
+        <h2>Side Bets</h2>
+        <table id="sideBets" class="table-4-columns">
+            <thead>
+                <tr>
+                    <th class="column-1" data-sort="betType">Side Bet</th>
+                    <th class="column-2" data-sort="numberOfDecks">Decks</th>
+                    <th class="column-3" data-sort="rtp">RTP</th>
+                    <th class="column-4" data-sort="houseEdge">House Edge</th>
+                </tr>
+            </thead>
+            <tbody id="sideBets-tbody">
+                <!-- Side bets will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </section>
+    <div id="buttons-container"></div>
+    <!-- Update script paths to be compatible with Flask's static folder structure -->
+    <script src="{{ url_for('static', filename='scripts/loadNavigationButtons.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
+</body>
+</html>

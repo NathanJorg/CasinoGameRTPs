@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino Game RTPs</title>
+    <!-- Update the path for CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Casino Game RTPs</h1>
+    </header>
+    <section>
+        <label for="search-input">Search Games: </label>
+        <input type="text" id="search-input" placeholder="Type to search...">
+    </section>
+
+    <section id="game-list">
+        <div class="row">
+            <!-- Main Games Section -->
+            <div class="column" id="main-games">
+                <h2>Main Games</h2>
+                <ul id="main-game-names">
+                    {% for game in main_games %}
+                    <li class="game-item" data-name="{{ game.name }}">
+                        <a href="{{ url_for('game_page', game_name=game.file_path.replace('.html', '')) }}">{{ game.name }}</a>
+                    </li>
+                    {% else %}
+                    <li>No main games available at the moment.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Side Bets Section -->
+            <div class="column" id="side-bets">
+                <h2>Side Bets</h2>
+                <ul id="side-bet-names">
+                    {% for side_bet in side_bets %}
+                    <li class="game-item" data-name="{{ side_bet.name }}">
+                        <a href="{{ url_for('side_bet_page', side_bet_name=side_bet.file_path.replace('.html', '')) }}">{{ side_bet.name }}</a>
+                    </li>
+                    {% else %}
+                    <li>No side bets available at the moment.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>   
+    </section>
+
+    <!-- Section for Displaying Min and Max RTPs -->
+    <section>
+        <h2>Queries</h2>
+        <button id="display-rtp-button" class="button-query">Main Game Min and Max RTPs</button>
+        <button id="side-bet-display-rtp-button" class="button-query">Side Bet Min and Max RTPs</button>
+    </section>
+
+    <!-- Update the paths for JavaScript files -->
+    <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/mainRtpRange.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/sideBetRtpRange.js') }}"></script>
+    <script>
+        // Event listener for main game button
+        document.getElementById('display-rtp-button').addEventListener('click', () => {
+            if (typeof displayMainRTPs === 'function') {
+                displayMainRTPs();
+            } else {
+                console.error('displayMainRTPs function is not defined.');
+            }
+        });
+
+        // Event listener for side bet button
+        document.getElementById('side-bet-display-rtp-button').addEventListener('click', () => {
+            if (typeof displaySideBetRTPs === 'function') {
+                displaySideBetRTPs();
+            } else {
+                console.error('displaySideBetRTPs function is not defined.');
+            }
+        });
+    </script>
+</body>
+</html>
