@@ -2,7 +2,6 @@ from flask import Flask, render_template, abort
 
 app = Flask(__name__)
 
-# Sample data for main games and side bets
 main_games = [
     {'name': 'Blackjack', 'file_path': 'blackjack.html'},
     {'name': 'Blackjack Challenge', 'file_path': 'blackjack_challenge.html'},
