@@ -17,7 +17,8 @@ main_games = [
     {'name': 'Three Card Poker', 'file_path': 'three_card_poker.html'},
     {'name': 'Ultimate Texas Hold\'em', 'file_path': 'ultimate_texas_holdem.html'},
     {'name': 'Wheel of Fortune', 'file_path': 'wheel_of_fortune.html'},
-    {'name': 'Craps', 'file_path': 'craps.html'}
+    {'name': 'Craps', 'file_path': 'craps.html'},
+    {'name': 'Lucky Draw Baccarat', 'file_path': 'lucky_draw_baccarat.html'}
 ]
 
 side_bets = [
@@ -25,7 +26,8 @@ side_bets = [
     {'name': 'Dragon Bonus', 'file_path': 'sb_dragon_bonus.html', 'games': ['baccarat']},
     {'name': 'Tiger Baccarat', 'file_path': 'sb_tiger_baccarat.html', 'games': ['baccarat']},
     {'name': 'Perfect Pairs - Spanish', 'file_path': 'sb_perfect_pairs_spanish.html', 'games': ['spanish_blackjack']},
-    {'name': 'Lucky Lucky', 'file_path': 'sb_lucky_lucky.html', 'games': ['blackjack', 'blackjack_challenge', 'soft_17_blackjack']}
+    {'name': 'Lucky Lucky', 'file_path': 'sb_lucky_lucky.html', 'games': ['blackjack', 'blackjack_challenge', 'soft_17_blackjack']},
+    {'name': 'Table Jackpot System', 'file_path': 'sb_table_jackpot.html', 'games': ['mississippi_stud', 'caribbean_stud', 'texas_holdem_bonus','ultimate_texas_holdem','three_card_poker']}
 ]
 
 @app.route('/')

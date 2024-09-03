@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casino Game RTPs</title>
-    <!-- Update the path for CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
@@ -18,7 +17,6 @@
 
     <section id="game-list">
         <div class="row">
-            <!-- Main Games Section -->
             <div class="column" id="main-games">
                 <h2>Main Games</h2>
                 <ul id="main-game-names">
@@ -31,8 +29,6 @@
                     {% endfor %}
                 </ul>
             </div>
-
-            <!-- Side Bets Section -->
             <div class="column" id="side-bets">
                 <h2>Side Bets</h2>
                 <ul id="side-bet-names">
@@ -47,20 +43,15 @@
             </div>
         </div>   
     </section>
-
-    <!-- Section for Displaying Min and Max RTPs -->
     <section>
         <h2>Queries</h2>
         <button id="display-rtp-button" class="button-query">Main Game Min and Max RTPs</button>
         <button id="side-bet-display-rtp-button" class="button-query">Side Bet Min and Max RTPs</button>
     </section>
-
-    <!-- Update the paths for JavaScript files -->
     <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/mainRtpRange.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/sideBetRtpRange.js') }}"></script>
     <script>
-        // Event listener for main game button
         document.getElementById('display-rtp-button').addEventListener('click', () => {
             if (typeof displayMainRTPs === 'function') {
                 displayMainRTPs();
@@ -69,7 +60,6 @@
             }
         });
 
-        // Event listener for side bet button
         document.getElementById('side-bet-display-rtp-button').addEventListener('click', () => {
             if (typeof displaySideBetRTPs === 'function') {
                 displaySideBetRTPs();

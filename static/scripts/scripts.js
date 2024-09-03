@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const sideBetFiles = document.body.getAttribute('data-side-bets').split(',');
             const mainGameFilters = document.querySelectorAll('.menu-filter'); // Get all filters from the main game
 
+            console.log(mainGameFilters)
             sideBetsTbody.innerHTML = '';
 
             for (const file of sideBetFiles) {
@@ -115,6 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const columnsCount = sideBetsTableColumns ? sideBetsTableColumns.querySelector('thead tr').cells.length : 0;
 
                 const sideBetsTables = doc.querySelectorAll('.menu-filter');
+                const tablesToParse = sideBetsTable.length > 0 ? sideBetsTables : [doc];
+
+                //console.log(tablesToParse)
+
                 sideBetsTables.forEach(table => {
                     const deckValue = table.getAttribute('data-filter');
                     
@@ -146,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 cell.classList.add(`column-${index + 1}`);
                             }); 
 
-                            console.log(clonedRow)
+                            //console.log(clonedRow)
 
                             sideBetsTbody.appendChild(clonedRow);
                         });
