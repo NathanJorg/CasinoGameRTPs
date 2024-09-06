@@ -54,7 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         filterMainGameTables(menuSelect.value);
         updateSideBets(menuSelect.value);
+    } else {
+        // Run updateSideBets with default behavior when menuSelect is not present
+        updateSideBets();
     }
+
 
     // Sort the main games and side bets lists
     if (isIndexPage) {
@@ -92,80 +96,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     async function updateSideBets(selectedOption) {
-        
         if (!document.body.getAttribute('data-side-bets')) {
             return;
         }
-
+    
         try {
             const sideBetFiles = document.body.getAttribute('data-side-bets').split(',');
             const mainGameFilters = document.querySelectorAll('.menu-filter'); // Get all filters from the main game
-
-            console.log(mainGameFilters)
             sideBetsTbody.innerHTML = '';
-
+    
             for (const file of sideBetFiles) {
                 const response = await fetch(file.trim());
                 const htmlText = await response.text();
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(htmlText, 'text/html');
-
+    
                 const sideBetHeader = doc.querySelector('header h1').textContent.trim();
-
+    
                 const sideBetsTableColumns = document.getElementById('sideBets');
                 const columnsCount = sideBetsTableColumns ? sideBetsTableColumns.querySelector('thead tr').cells.length : 0;
-
+    
+                // Select side bet tables or use document if not found
                 const sideBetsTables = doc.querySelectorAll('.menu-filter');
-                const tablesToParse = sideBetsTable.length > 0 ? sideBetsTables : [doc];
+                const tablesToParse = sideBetsTables.length > 0 ? sideBetsTables : [doc];
+                
+                console.log(tablesToParse)
 
-                //console.log(tablesToParse)
-
-                sideBetsTables.forEach(table => {
+                tablesToParse.forEach(table => {
                     const deckValue = table.getAttribute('data-filter');
                     
-                    // Check if the deckValue exists in the main game filters
-                    const mainGameHasDeck = Array.from(mainGameFilters).some(mainFilter => {
-                        return mainFilter.getAttribute('data-filter') === deckValue;
-                    });
-
+                    // Handle main game filters only when deck values exist
+                    const mainGameHasDeck = deckValue 
+                        ? Array.from(mainGameFilters).some(mainFilter => mainFilter.getAttribute('data-filter') === deckValue)
+                        : true; // Default to true for games like Three Card Poker
+    
                     // Populate side bet data only if selectedOption matches and main game has the deck
-                    if ((selectedOption === 'all' || selectedOption === deckValue) && mainGameHasDeck) {
-
+                    if ((selectedOption === 'all' || selectedOption === deckValue || !deckValue) && mainGameHasDeck) {
                         const rows = table.querySelectorAll('tbody tr');
-
+    
                         rows.forEach(row => {
                             const clonedRow = row.cloneNode(true);
                             
                             const betTypeCell = clonedRow.querySelector('td:first-child');
                             betTypeCell.textContent = `${sideBetHeader} - ${betTypeCell.textContent}`;
     
-                            if (columnsCount === 4) {
+                            // Add deck cell only when relevant (e.g., when there are 4 columns)
+                            if (columnsCount === 4 && deckValue) {
                                 const deckCell = document.createElement('td');
                                 deckCell.textContent = deckValue;
                                 clonedRow.insertBefore(deckCell, clonedRow.querySelector('td:nth-child(2)'));
                             }
-
+    
                             const cells = clonedRow.querySelectorAll('td');
-
                             cells.forEach((cell, index) => {
                                 cell.classList.add(`column-${index + 1}`);
-                            }); 
-
-                            //console.log(clonedRow)
-
+                            });
+    
                             sideBetsTbody.appendChild(clonedRow);
                         });
-                   
                     }
                 });
             }
-            
+    
             addSortingToTable(sideBetsTable);
-
+    
         } catch (error) {
             console.error('Error fetching or processing side bets data:', error);
-        }      
+        }
     }
+    
 
     function addSortingToTable(table) {
 

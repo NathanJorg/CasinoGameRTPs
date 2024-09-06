@@ -27,7 +27,10 @@ side_bets = [
     {'name': 'Tiger Baccarat', 'file_path': 'sb_tiger_baccarat.html', 'games': ['baccarat']},
     {'name': 'Perfect Pairs - Spanish', 'file_path': 'sb_perfect_pairs_spanish.html', 'games': ['spanish_blackjack']},
     {'name': 'Lucky Lucky', 'file_path': 'sb_lucky_lucky.html', 'games': ['blackjack', 'blackjack_challenge', 'soft_17_blackjack']},
-    {'name': 'Table Jackpot System', 'file_path': 'sb_table_jackpot.html', 'games': ['mississippi_stud', 'caribbean_stud', 'texas_holdem_bonus','ultimate_texas_holdem','three_card_poker']}
+    {'name': 'Table Jackpot System', 'file_path': 'sb_table_jackpot.html', 'games': ['mississippi_stud', 'caribbean_stud', 'texas_holdem_bonus', 'ultimate_texas_holdem', 'three_card_poker']},
+    {'name': 'Player Pair or Banker Pair', 'file_path': 'sb_player_banker_pair.html', 'games': ['baccarat']},
+    {'name': 'Super 6', 'file_path': 'sb_super_6.html', 'games': ['baccarat']},
+    {'name': 'Super Sevens', 'file_path': 'sb_super_sevens.html', 'games': ['blackjack']}
 ]
 
 @app.route('/')

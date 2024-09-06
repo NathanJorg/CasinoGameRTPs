@@ -6,7 +6,10 @@
     <title>Texas Hold'em Bonus Poker RTP</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body data-game="Texas Hold'em Bonus Poker" onload="loadNavigationButtons()">
+<body data-game="Texas Hold'em Bonus Poker" onload="loadNavigationButtons()"
+        data-side-bets="{% for side_bet in side_bets %}
+            {{ url_for('side_bet_page', side_bet_name=side_bet.file_path.replace('.html', '')) }}{% if not loop.last %},{% endif %}
+        {% endfor %}">
     <header>
         <h1>Texas Hold'em Bonus Poker</h1>
     </header>
@@ -31,6 +34,21 @@
                 </tr>
             </tbody>
         </table>       
+    </section>
+    <section>
+        <h2>Side Bets</h2>
+        <table id="sideBets">
+            <thead>
+                <tr>
+                    <th class="column-1" data-sort="betType">Side Bet</th>
+                    <th class="column-2" data-sort="rtp">RTP</th>
+                    <th class="column-3" data-sort="houseEdge">House Edge</th>
+                </tr>
+            </thead>
+            <tbody id="sideBets-tbody">
+                <!-- Side bets will be dynamically inserted here -->
+            </tbody>
+        </table>
     </section>
     <div id="buttons-container"></div>
     <script src="{{ url_for('static', filename='scripts/loadNavigationButtons.js') }}"></script>
