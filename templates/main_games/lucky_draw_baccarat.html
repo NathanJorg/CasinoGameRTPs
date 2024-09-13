@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Draw Baccarat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> 
+</head>
+<body data-game="Lucky Draw Baccarat" onload="loadNavigationButtons()">
+    <header>
+        <h1>Lucky Draw Baccarat</h1>
+    </header>
+    <section>
+        <label for="menu-select">Select number of decks: </label>
+        <select id="menu-select">
+            <option value="all">All</option>
+            <option value="6">6 Decks</option>
+            <option value="8">8 Decks</option>
+        </select>
+    </section>
+    <section id="tables">
+        <div class="menu-filter" data-filter="6">
+            <h2>6 Decks</h2>
+            <table class="mainGame">
+                <thead>
+                    <tr>
+                        <th data-sort="betType">Bet Type</th>
+                        <th data-sort="aveUnitsBet">Average Units Bet</th>
+                        <th data-sort="rtp">RTP</th>
+                        <th data-sort="houseEdge">House Edge</th>                        
+                        <th data-sort="effectiveHouseEdge">Effective RTP / House Edge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lucky Draw Baccarat</td>
+                        <td>1.60</td>
+                        <td>96.89%</td>
+                        <td>3.11%</td>
+                        <td>98.05% / 1.95%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="menu-filter" data-filter="8">
+            <h2>8 Decks</h2>
+            <table class="mainGame">
+                <thead>
+                    <tr>
+                        <th data-sort="betType">Bet Type</th>
+                        <th data-sort="aveUnitsBet">Average Units Bet</th>
+                        <th data-sort="rtp">RTP</th>
+                        <th data-sort="houseEdge">House Edge</th>                        
+                        <th data-sort="effectiveHouseEdge">Effective RTP / House Edge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lucky Draw Baccarat</td>
+                        <td>1.60</td>
+                        <td>96.89%</td>
+                        <td>3.11%</td>
+                        <td>98.05% / 1.95%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <div id="buttons-container"></div>
+    <script src="{{ url_for('static', filename='scripts/loadNavigationButtons.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
+</body>
+</html>

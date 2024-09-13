@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Jackpot System RTP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body onload="loadNavigationButtons()">
+    <header>
+        <h1>Table Jackpot System</h1>
+    </header>
+    <section id="tables">
+        <div class="menu-filter">
+            <table class="sideBets">
+                <thead>
+                    <tr>
+                        <th data-sort="betType">Bet Type</th>
+                        <th data-sort="rtp">RTP</th>
+                        <th data-sort="houseEdge">House Edge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Table Jackpot System</td>
+                        <td>85.00%</td>
+                        <td>15.00%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+   
+    </section>
+    <div id="buttons-container"></div>
+    <script src="{{ url_for('static', filename='scripts/loadNavigationButtons.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
+</body>
+</html>
