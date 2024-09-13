@@ -1,4 +1,6 @@
 from flask import Flask, render_template, abort
+import webbrowser
+import threading
 
 app = Flask(__name__)
 
@@ -55,5 +57,10 @@ def side_bet_page(side_bet_name):
     else:
         abort(404)  
 
+def open_browser():
+    webbrowser.open("http://127.0.0.1:5000/")
+
 if __name__ == '__main__':
+    threading.Timer(2, open_browser).start()
     app.run(debug=True)
+    
